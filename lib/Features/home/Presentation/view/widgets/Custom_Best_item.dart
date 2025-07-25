@@ -1,4 +1,3 @@
-
 import 'package:clean_arch_booky_app/Features/home/Presentation/view/widgets/Book_Rating.dart';
 import 'package:clean_arch_booky_app/constants.dart';
 import 'package:clean_arch_booky_app/core/style.dart';
@@ -27,7 +26,7 @@ class BestSellerListVeiw extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(11),
-                  
+
                   image: const DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage(
@@ -71,7 +70,10 @@ class BestSellerListVeiw extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      const BookRating(),
+                  const    BookRating(
+                        mainAxisAlignment:
+                            MainAxisAlignment.end,
+                      ),
                     ],
                   ),
                 ],
