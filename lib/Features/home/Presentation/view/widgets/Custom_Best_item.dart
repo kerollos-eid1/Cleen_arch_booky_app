@@ -1,3 +1,4 @@
+
 import 'package:clean_arch_booky_app/Features/home/Presentation/view/widgets/Book_Rating.dart';
 import 'package:clean_arch_booky_app/constants.dart';
 import 'package:clean_arch_booky_app/core/style.dart';
@@ -6,8 +7,8 @@ import 'package:clean_arch_booky_app/core/utils/photo/assets_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BestSellerListVeiw extends StatelessWidget {
-  const BestSellerListVeiw({super.key});
+class BookListVeiwItem extends StatelessWidget {
+  const BookListVeiwItem({super.key});
 
   @override
   Widget build(BuildContext context) {
