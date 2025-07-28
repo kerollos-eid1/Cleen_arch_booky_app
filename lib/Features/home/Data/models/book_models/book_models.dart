@@ -1,9 +1,12 @@
+import 'package:clean_arch_booky_app/Features/home/Domain/entities/home_entity.dart';
+
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
 
-class Bookmodels {
+// This class represents a book model that extends the HomeEntity class.
+class Bookmodels extends HomeEntity {
   String? kind;
   String? id;
   String? etag;
@@ -22,7 +25,21 @@ class Bookmodels {
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,
-  });
+  })
+    // Initializing the HomeEntity with the required parameters.
+    // The bookId is set to id, and other fields are derived from volumeInfo.
+    // The price is set to 0.00, and rating is set based on maturityRating.
+    // If maturityRating is 'NOT_MATURE', rating is set to 5.0, otherwise 0.0.
+    : super(
+         bookId: id!,
+         image: volumeInfo?.imageLinks?.thumbnail ?? '',
+         title: volumeInfo!.title!,
+         outherName: volumeInfo.authors?.first ?? 'No_Name',
+         price: 0.00,
+         rating: volumeInfo.maturityRating == 'NOT_MATURE'
+             ? 5.0
+             : 0.0,
+       );
 
   factory Bookmodels.fromJson(Map<String, dynamic> json) =>
       Bookmodels(

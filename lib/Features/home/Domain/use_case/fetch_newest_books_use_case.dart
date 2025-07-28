@@ -1,5 +1,5 @@
-import 'package:clean_arch_booky_app/Features/home/Donain/entities/home_entity.dart';
-import 'package:clean_arch_booky_app/Features/home/Donain/repo/home_repo.dart';
+import 'package:clean_arch_booky_app/Features/home/Domain/entities/home_entity.dart';
+import 'package:clean_arch_booky_app/Features/home/Domain/repo/home_repo.dart';
 import 'package:clean_arch_booky_app/core/errors/failure.dart';
 import 'package:clean_arch_booky_app/core/use_case/use_case.dart';
 import 'package:dartz/dartz.dart';
