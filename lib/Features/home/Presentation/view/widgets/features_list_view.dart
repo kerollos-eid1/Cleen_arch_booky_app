@@ -1,7 +1,6 @@
 import 'package:clean_arch_booky_app/Features/home/Presentation/view/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 
-
 class CustomBookImage extends StatelessWidget {
   const CustomBookImage({super.key});
 

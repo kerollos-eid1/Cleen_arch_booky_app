@@ -7,7 +7,8 @@ class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
 
   @override
-  State<SplashViewBody> createState() => _SplashViewBodyState();
+  State<SplashViewBody> createState() =>
+      _SplashViewBodyState();
 }
 
 class _SplashViewBodyState extends State<SplashViewBody>
@@ -67,7 +68,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         duration: kTranstionDuration,
       );
       
-      */ 
+      */
       GoRouter.of(context).push('/homeView');
     });
   }

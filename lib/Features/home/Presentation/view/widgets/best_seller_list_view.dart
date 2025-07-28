@@ -2,7 +2,6 @@ import 'package:clean_arch_booky_app/Features/home/Presentation/view/widgets/Cus
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 
-
 class BestSellerListVeiwItems extends StatelessWidget {
   const BestSellerListVeiwItems({super.key});
 
@@ -14,13 +13,12 @@ class BestSellerListVeiwItems extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
       itemCount: 10,
-      itemBuilder: (context , index){
+      itemBuilder: (context, index) {
         return const Padding(
-          padding:  EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: BookListVeiwItem(),
         );
-      }
-    
+      },
     );
   }
 }
