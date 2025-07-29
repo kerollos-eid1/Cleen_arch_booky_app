@@ -14,6 +14,9 @@ class HomeRemoteDataSourceImplmention
   final ApiServices apiServices;
 
   HomeRemoteDataSourceImplmention(this.apiServices);
+
+    // This method fetches featured books from a remote source. 
+  // It uses the ApiServices to make a GET request to the specified endpoint.
   @override
   Future<List<HomeEntity>> fetchFeaturedBooks() async {
     var data = await apiServices.get(
@@ -24,6 +27,19 @@ class HomeRemoteDataSourceImplmention
     return books;
   }
 
+// This method fetches the newest books from a remote source.
+// It uses the ApiServices to make a GET request to the specified endpoint.
+  @override
+  Future<List<HomeEntity>> fetchNewestBooks() async{
+   var data = await apiServices.get(
+      endPoint:
+          'volumes?q=programming&filtering=free-books',
+    );
+    List<HomeEntity> books = getBooksList(data);
+    return books;
+  }
+// This method converts the JSON data into a list of HomeEntity objects.
+  // It iterates through the items in the data and creates Bookmodels from each item.
   List<HomeEntity> getBooksList(Map<String, dynamic> data) {
     List<HomeEntity> books = [];
     for (var bookMap in data['items']) {
@@ -31,9 +47,5 @@ class HomeRemoteDataSourceImplmention
     }
     return books;
   }
-
-  @override
-  Future<List<HomeEntity>> fetchNewestBooks() {
-    throw UnimplementedError();
-  }
 }
+//
