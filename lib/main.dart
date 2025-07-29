@@ -1,9 +1,14 @@
+import 'package:clean_arch_booky_app/Features/home/Domain/entities/book_entity.dart';
+import 'package:clean_arch_booky_app/constants.dart';
 import 'package:clean_arch_booky_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async {
   runApp(const BookApp());
+  Hive.registerAdapter(BookEntityAdapter());
+ await Hive.openBox(kFeaturedBox);
 }
 
 class BookApp extends StatelessWidget {
