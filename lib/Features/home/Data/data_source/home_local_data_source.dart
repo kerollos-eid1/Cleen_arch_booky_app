@@ -1,21 +1,21 @@
-import 'package:clean_arch_booky_app/Features/home/Domain/entities/home_entity.dart';
+import 'package:clean_arch_booky_app/Features/home/Domain/entities/book_entity.dart';
 
 abstract class HomeLocalDataSource {
   // Define methods for local data source if needed
-  List<HomeEntity> fetchFeaturedBooks();
-  List<HomeEntity> fetchNewestBooks();
+  List<BookEntity> fetchFeaturedBooks();
+  List<BookEntity> fetchNewestBooks();
 }
 
 class HomeLocalDataSourceImplmention
     extends HomeLocalDataSource {
   @override
-  List<HomeEntity> fetchFeaturedBooks() {
+  List<BookEntity> fetchFeaturedBooks() {
     // TODO: implement fetchFeaturedBooks
     throw UnimplementedError();
   }
 
   @override
-  List<HomeEntity> fetchNewestBooks() {
+  List<BookEntity> fetchNewestBooks() {
     // TODO: implement fetchNewestBooks
     throw UnimplementedError();
   }

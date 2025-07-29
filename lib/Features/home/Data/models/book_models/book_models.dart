@@ -1,4 +1,4 @@
-import 'package:clean_arch_booky_app/Features/home/Domain/entities/home_entity.dart';
+import 'package:clean_arch_booky_app/Features/home/Domain/entities/book_entity.dart';
 
 import 'access_info.dart';
 import 'sale_info.dart';
@@ -6,7 +6,7 @@ import 'search_info.dart';
 import 'volume_info.dart';
 
 // This class represents a book model that extends the HomeEntity class.
-class Bookmodels extends HomeEntity {
+class Bookmodels extends BookEntity {
   String? kind;
   String? id;
   String? etag;

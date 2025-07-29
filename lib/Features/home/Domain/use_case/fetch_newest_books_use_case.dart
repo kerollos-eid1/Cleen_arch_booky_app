@@ -1,4 +1,4 @@
-import 'package:clean_arch_booky_app/Features/home/Domain/entities/home_entity.dart';
+import 'package:clean_arch_booky_app/Features/home/Domain/entities/book_entity.dart';
 import 'package:clean_arch_booky_app/Features/home/Domain/repo/home_repo.dart';
 import 'package:clean_arch_booky_app/core/errors/failure.dart';
 import 'package:clean_arch_booky_app/core/use_case/use_case.dart';
@@ -7,13 +7,13 @@ import 'package:dartz/dartz.dart';
 // This use case is responsible for fetching the newest books from the repository.
 // It extends a generic UseCase class that defines the contract for use cases in the application.
 class FetchNewestBooksUseCase
-    extends UsCase<List<HomeEntity>, NoParams> {
+    extends UsCase<List<BookEntity>, NoParams> {
   final HomeRepo homeRepo;
 
   FetchNewestBooksUseCase(this.homeRepo);
 
   @override
-  Future<Either<Failure, List<HomeEntity>>> call([
+  Future<Either<Failure, List<BookEntity>>> call([
     NoParams? params,
   ]) async {
     return await homeRepo.fetchNewestBooks();
