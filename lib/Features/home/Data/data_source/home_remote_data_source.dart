@@ -15,10 +15,9 @@ abstract class HomeRemoteDataSource {
 class HomeRemoteDataSourceImplmention
     extends HomeRemoteDataSource {
   final ApiServices apiServices;
-
   HomeRemoteDataSourceImplmention(this.apiServices);
 
-  // This method fetches featured books from a remote source.
+
   // It uses the ApiServices to make a GET request to the specified endpoint.
   @override
   Future<List<BookEntity>> fetchFeaturedBooks() async {
@@ -32,7 +31,7 @@ class HomeRemoteDataSourceImplmention
     return books;
   }
 
-  // This method fetches the newest books from a remote source.
+
   // It uses the ApiServices to make a GET request to the specified endpoint.
   @override
   Future<List<BookEntity>> fetchNewestBooks() async {
@@ -41,6 +40,7 @@ class HomeRemoteDataSourceImplmention
           'volumes?q=programming&filtering=free-books&sorting=newest',
     );
     List<BookEntity> books = getBooksList(data);
+     saveBooksData(books, kNewestBox);
     return books;
   }
 
@@ -54,4 +54,3 @@ class HomeRemoteDataSourceImplmention
     return books;
   }
 }
-// This implementation of HomeRemoteDataSource uses the ApiServices to fetch data from a remote API.
