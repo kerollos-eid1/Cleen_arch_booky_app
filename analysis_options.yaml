@@ -29,4 +29,4 @@ linter:
 formatter:
   # The formatter section can be used to configure the Dart code formatter.
   # For example, you can specify the line length for formatting.
-  page_width: 60 # Adjust this value as needed for your project
+  page_width: 80 # Adjust this value as needed for your project
