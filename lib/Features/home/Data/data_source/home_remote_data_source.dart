@@ -6,17 +6,14 @@ import 'package:clean_arch_booky_app/core/utils/function/save_books_data.dart';
 
 // This abstract class defines the contract for the HomeRemoteDataSource.
 // It declares methods for fetching featured and newest books from a remote source.
-
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks();
   Future<List<BookEntity>> fetchNewestBooks();
 }
-
 class HomeRemoteDataSourceImplmention
     extends HomeRemoteDataSource {
   final ApiServices apiServices;
   HomeRemoteDataSourceImplmention(this.apiServices);
-
 
   // It uses the ApiServices to make a GET request to the specified endpoint.
   @override
@@ -30,7 +27,6 @@ class HomeRemoteDataSourceImplmention
     saveBooksData(books, kFeaturedBox);
     return books;
   }
-
 
   // It uses the ApiServices to make a GET request to the specified endpoint.
   @override
