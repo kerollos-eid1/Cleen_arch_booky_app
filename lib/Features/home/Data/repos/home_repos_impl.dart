@@ -4,6 +4,7 @@ import 'package:clean_arch_booky_app/Features/home/Domain/entities/book_entity.d
 import 'package:clean_arch_booky_app/Features/home/Domain/repo/home_repo.dart';
 import 'package:clean_arch_booky_app/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeReposImpl extends HomeRepo {
   final HomeRemoteDataSource homeRemoteDataSource;
@@ -15,34 +16,42 @@ class HomeReposImpl extends HomeRepo {
   @override
   Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks() async {
     try {
+      List<BookEntity> books;
       // First, try to fetch books from local data source
       // If local data source is empty, then fetch from remote data source
-      var booklist = homeLocalDataSource.fetchFeaturedBooks();
-      if (booklist.isNotEmpty) {
-        return right(booklist);
+      books = homeLocalDataSource.fetchFeaturedBooks();
+      if (books.isNotEmpty) {
+        return right(books);
       }
       // Fetching books from remote data source
-      var books = await homeRemoteDataSource.fetchFeaturedBooks();
+      books = await homeRemoteDataSource.fetchFeaturedBooks();
       return right(books);
     } catch (e) {
-      return left(Failure());
+      if (e is DioException) {
+        return left(ServerFailure.fromDioExciption(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 
   @override
   Future<Either<Failure, List<BookEntity>>> fetchNewestBooks() async {
     try {
+      List<BookEntity> books;
       // First, try to fetch books from local data source
       // If local data source is empty, then fetch from remote data source
-      var booklist = homeLocalDataSource.fetchNewestBooks();
-      if (booklist.isNotEmpty) {
-        return right(booklist);
+      books = homeLocalDataSource.fetchNewestBooks();
+      if (books.isNotEmpty) {
+        return right(books);
       }
       // Fetching books from remote data source
-      var books = await homeRemoteDataSource.fetchNewestBooks();
+      books = await homeRemoteDataSource.fetchNewestBooks();
       return right(books);
     } catch (e) {
-      return left(Failure());
+      if (e is DioException) {
+        return left(ServerFailure.fromDioExciption(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 }
