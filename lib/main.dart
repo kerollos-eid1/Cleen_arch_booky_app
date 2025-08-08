@@ -9,20 +9,18 @@ import 'package:clean_arch_booky_app/core/utils/app_router.dart';
 import 'package:clean_arch_booky_app/core/utils/function/setup_services_locater.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
+  // Initialize the service locator
   setupServicesLocater();
   await Hive.openBox<BookEntity>(kFeaturedBox);
   await Hive.openBox<BookEntity>(kNewestBox);
   runApp(const BookApp());
 }
-
-final locater = GetIt.instance;
 
 class BookApp extends StatelessWidget {
   const BookApp({super.key});
