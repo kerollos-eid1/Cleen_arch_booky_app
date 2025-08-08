@@ -4,13 +4,19 @@ import 'package:clean_arch_booky_app/Features/home/Data/repos/home_repos_impl.da
 import 'package:clean_arch_booky_app/core/utils/api_services.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-// This file is used to set up the service locator for dependency injection
-// It registers the HomeReposImpl with its dependencies
+
 final locater = GetIt.instance;
 void setupServicesLocater() {
+  // Registering the ApiServices and HomeReposImpl with their dependencies
+  
+  locater.registerSingleton<ApiServices>(ApiServices(Dio()));
+
+  // Registering the HomeReposImpl with its dependencies
   locater.registerSingleton<HomeReposImpl>(
     HomeReposImpl(
-      homeRemoteDataSource: HomeRemoteDataSourceImplmention(ApiServices(Dio())),
+      homeRemoteDataSource: HomeRemoteDataSourceImplmention(
+        locater.get<ApiServices>(),
+      ),
       homeLocalDataSource: HomeLocalDataSourceImplmention(),
     ),
   );
